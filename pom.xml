@@ -14,10 +14,7 @@
     </properties>
 
     <dependencies>
-<<<<<<< HEAD
-=======
 
->>>>>>> d2a64f5 (HW2)
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -35,11 +32,5 @@
         </dependency>
 
     </dependencies>
-<<<<<<< HEAD
-
-    <!-- marker -->
-
-=======
-    
->>>>>>> d2a64f5 (HW2)
+             
 </project>
