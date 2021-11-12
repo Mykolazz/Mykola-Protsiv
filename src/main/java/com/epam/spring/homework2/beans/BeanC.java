@@ -1,43 +1,23 @@
 package com.epam.spring.homework2.beans;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.DependsOn;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Component
-@DependsOn(value = {"beanB", "beanD"})
-public class BeanC {
+@Order(3)
+public class BeanC extends GenericBean {
     @Value("${beanC.name}")
     private String name;
     @Value("${beanC.value}")
     private int value;
 
-    public BeanC(){
-        System.out.println("BeanC");
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
-    }
-
     private void init(){
-        System.out.println("Initialization bean: type: " + BeanB.class.getSimpleName() + "name:" + name);
+        System.out.println("'beanC' bean initialization");
     }
 
     private void preDestroy(){
-        System.out.println("Destroying bean: type: " + BeanB.class.getSimpleName() + "name:" + name);
+        System.out.println("Destroying bean 'beanC'");
     }
 
     @Override

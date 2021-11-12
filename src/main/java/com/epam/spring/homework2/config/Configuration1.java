@@ -1,7 +1,6 @@
 package com.epam.spring.homework2.config;
 
 import com.epam.spring.homework2.beans.*;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
 @Configuration
@@ -13,17 +12,17 @@ import org.springframework.context.annotation.*;
 public class Configuration1 {
 
         @Bean(initMethod = "init", destroyMethod = "preDestroy")
-        public BeanB getBeanB(){
+        public BeanB beanB(){
                 return new BeanB();
         }
 
         @Bean(initMethod = "init", destroyMethod = "preDestroy")
-        public BeanC getBeanC(){
+        public BeanC beanC(){
                 return new BeanC();
         }
 
         @Bean(initMethod = "init", destroyMethod = "preDestroy")
-        public BeanD getBeanD(){
+        public BeanD beanD(){
                 return new BeanD();
         }
 

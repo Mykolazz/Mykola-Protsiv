@@ -2,39 +2,29 @@ package com.epam.spring.homework2.beans;
 
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BeanA implements InitializingBean, DisposableBean {
+@DependsOn({"nameForBeanA", "valueForBeanA"})
+public class BeanA extends GenericBean implements InitializingBean, DisposableBean {
     private String name;
     private int value;
 
-    public BeanA(){
-        System.out.println("BeanA");
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
+    @Override
+    @Autowired
+    @Qualifier("nameForBeanA")
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setValue(int value) {
-        this.value = value;
-    }
-
     @Override
-    public String toString() {
-        return "BeanA{" +
-                "name='" + name + '\'' +
-                ", value=" + value +
-                '}';
+    @Autowired
+    @Qualifier("valueForBeanA")
+    public void setValue(Integer value) {
+        this.value = value;
     }
 
     @Override
@@ -45,5 +35,13 @@ public class BeanA implements InitializingBean, DisposableBean {
     @Override
     public void afterPropertiesSet() throws Exception {
         System.out.println("BeanA: 'I arose!'");
+    }
+
+    @Override
+    public String toString() {
+        return "BeanA{" +
+                "name='" + name + '\'' +
+                ", value=" + value +
+                '}';
     }
 }

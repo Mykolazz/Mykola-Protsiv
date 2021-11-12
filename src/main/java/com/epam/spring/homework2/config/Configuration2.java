@@ -11,4 +11,28 @@ import org.springframework.context.annotation.*;
                 type= FilterType.ASSIGNABLE_TYPE, classes= {BeanA.class, BeanE.class, BeanF.class}))
 public class Configuration2 {
 
+        @Bean
+        public String nameForBeanA(){
+                return "BeanA";
+        }
+        @Bean
+        public String nameForBeanE(){
+                return "BeanE";
+        }
+        @Bean
+        public String nameForBeanF(){
+                return "BeanF";
+        }
+        @Bean
+        public Integer valueForBeanA(){
+                return 69;
+        }
+        @Bean
+        public Integer valueForBeanE(){
+                return 73;
+        }
+        @Bean
+        public Integer valueForBeanF(){
+                return 74;
+        }
 }

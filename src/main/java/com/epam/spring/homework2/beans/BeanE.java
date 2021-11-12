@@ -1,33 +1,29 @@
 package com.epam.spring.homework2.beans;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 @Component
-public class BeanE {
+@DependsOn({"nameForBeanE", "valueForBeanE"})
+public class BeanE extends GenericBean {
 
     private String name;
     private int value;
 
-    public BeanE(){
-        System.out.println("BeanE");
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
+    @Autowired
+    @Qualifier("nameForBeanE")
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setValue(int value) {
+    @Autowired
+    @Qualifier("valueForBeanE")
+    public void setValue(Integer value) {
         this.value = value;
     }
 
