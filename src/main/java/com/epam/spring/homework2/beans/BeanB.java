@@ -11,9 +11,10 @@ public class BeanB {
     private String name;
     @Value("${beanB.value}")
     private int value;
+    private static int counter = 0;
 
     public BeanB(){
-        System.out.println("BeanB");
+        System.out.println("BeanB " + counter++);
     }
 
     public String getName() {
@@ -30,6 +31,14 @@ public class BeanB {
 
     public void setValue(int value) {
         this.value = value;
+    }
+
+    private void init(){
+        System.out.println("Initialization bean: type: " + BeanB.class.getSimpleName() + "name:" + name);
+    }
+
+    private void preDestroy(){
+        System.out.println("Destroying bean: type: " + BeanB.class.getSimpleName() + "name:" + name);
     }
 
     @Override

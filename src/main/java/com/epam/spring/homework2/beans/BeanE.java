@@ -2,6 +2,9 @@ package com.epam.spring.homework2.beans;
 
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component
 public class BeanE {
 
@@ -26,6 +29,16 @@ public class BeanE {
 
     public void setValue(int value) {
         this.value = value;
+    }
+
+    @PreDestroy
+    public void preDestroy() {
+        System.out.println("BeanE: 'I'm dying, help me...'");
+    }
+
+    @PostConstruct
+    public void afterPropertiesSet(){
+        System.out.println("BeanE: 'I arose!'");
     }
 
     @Override

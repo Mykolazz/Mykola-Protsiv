@@ -30,6 +30,14 @@ public class BeanD {
         this.value = value;
     }
 
+    private void init(){
+        System.out.println("Initialization bean: type: " + BeanB.class.getSimpleName() + "name:" + name);
+    }
+
+    private void preDestroy(){
+        System.out.println("Destroying bean: type: " + BeanB.class.getSimpleName() + "name:" + name);
+    }
+
     @Override
     public String toString() {
         return "BeanD{" +

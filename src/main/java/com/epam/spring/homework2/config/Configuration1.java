@@ -12,7 +12,19 @@ import org.springframework.context.annotation.*;
                 type=FilterType.ASSIGNABLE_TYPE, classes= {BeanA.class, BeanE.class, BeanF.class}))
 public class Configuration1 {
 
+        @Bean(initMethod = "init", destroyMethod = "preDestroy")
+        public BeanB getBeanB(){
+                return new BeanB();
+        }
 
+        @Bean(initMethod = "init", destroyMethod = "preDestroy")
+        public BeanC getBeanC(){
+                return new BeanC();
+        }
 
+        @Bean(initMethod = "init", destroyMethod = "preDestroy")
+        public BeanD getBeanD(){
+                return new BeanD();
+        }
 
 }

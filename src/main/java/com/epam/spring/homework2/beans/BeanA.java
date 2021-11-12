@@ -39,11 +39,11 @@ public class BeanA implements InitializingBean, DisposableBean {
 
     @Override
     public void destroy() throws Exception {
-        System.out.println("I'm dying, help me...");
+        System.out.println("BeanA: 'I'm dying, help me...'");
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.println("I arose, my name is " + this);
+        System.out.println("BeanA: 'I arose!'");
     }
 }
